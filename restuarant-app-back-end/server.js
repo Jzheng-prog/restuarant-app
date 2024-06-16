@@ -4,6 +4,7 @@ const cors = require('cors');
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+const usersRouter = require('./controllers/users.js');
 
 
 mongoose.connect(process.env.MONGODB_URI);
@@ -18,7 +19,7 @@ app.use(express.json());
 
 // app.use('/hoots', hootsRouter);
 // app.use('/test-jwt', testJWTRouter);
-// app.use('/users', usersRouter);
+app.use('/users', usersRouter);
 // app.use('/profiles', profilesRouter);
 
 app.listen(3000, () => {
